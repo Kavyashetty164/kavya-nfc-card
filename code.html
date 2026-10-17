@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0b0f17">
+<title>Kavya Shree GN | Executive Digital Business Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+:root {
+  --bg-base: #080a0f;
+  --bg-card: rgba(16, 20, 29, 0.75);
+  --bg-card-subtle: rgba(255, 255, 255, 0.035);
+  --primary-accent: #f97316;
+  --primary-gradient: linear-gradient(135deg, #fb923c 0%, #ea580c 100%);
+  --accent-gold: #f59e0b;
+  --accent-blue: #38bdf8;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(251, 146, 60, 0.35);
+  --radius-xl: 24px;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 14px;
+  position: relative;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(249, 115, 22, 0.12) 0%, transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 20% 90%, rgba(245, 158, 11, 0.05) 0%, transparent 45%);
+}
+
+/* Background grid subtle texture */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-container {
+  width: 100%;
+  max-width: 410px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Glass Main Card */
+.executive-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.75),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  position: relative;
+}
+
+/* Top utility row */
+.card-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px 8px;
+}
+
+.nfc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 11px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #cbd5e1;
+  text-transform: uppercase;
+}
+
+.live-beacon {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: beacon-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes beacon-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.utility-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.util-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.util-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Hero Profile Showcase */
+.profile-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 20px 18px;
+  text-align: center;
+  position: relative;
+}
+
+.avatar-frame {
+  position: relative;
+  width: 136px;
+  height: 136px;
+  margin-bottom: 14px;
+}
+
+.avatar-glow {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  opacity: 0.85;
+  filter: blur(8px);
+  z-index: 1;
+}
+
+.avatar-border-ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  z-index: 2;
+  padding: 2.5px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  background: #1e2430;
+  position: relative;
+  z-index: 3;
+}
+
+.verified-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #0f172a;
+  border: 2px solid #0f172a;
+  color: #38bdf8;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  z-index: 4;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  color: #34d399;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 11px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.status-badge i {
+  font-size: 10px;
+}
+
+.person-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.person-role {
+  font-size: 13.5px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #fb923c, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 3px;
+  letter-spacing: 0.01em;
+}
+
+.location-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  color: var(--text-tertiary);
+  margin-top: 5px;
+}
+
+.bio-paragraph {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin-top: 10px;
+  max-width: 340px;
+}
+
+/* Save Contact CTA */
+.cta-container {
+  width: 100%;
+  padding: 0 18px 16px;
+}
+
+.btn-save-contact {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 7px 6px 20px;
+  border-radius: 100px;
+  background: var(--primary-gradient);
+  border: none;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14.5px;
+  letter-spacing: 0.01em;
+  box-shadow: 0 10px 24px -4px rgba(249, 115, 22, 0.45);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-save-contact:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -4px rgba(249, 115, 22, 0.6);
+}
+
+.btn-save-contact:active {
+  transform: translateY(0);
+}
+
+.btn-action-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #ea580c;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease;
+}
+
+.btn-save-contact:hover .btn-action-circle {
+  transform: scale(1.08);
+}
+
+/* Quick Action Tiles */
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.action-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 13px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.action-card:hover {
+  background: rgba(28, 35, 51, 0.85);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-2px);
+}
+
+.action-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  color: #fb923c;
+  transition: all 0.2s ease;
+}
+
+.action-card:hover .action-icon-box {
+  background: var(--primary-gradient);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.action-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+/* Footer note */
+.card-footer {
+  text-align: center;
+  padding: 6px 0 2px;
+  color: var(--text-tertiary);
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  letter-spacing: 0.03em;
+}
+
+.card-footer i {
+  color: #fb923c;
+  font-size: 10px;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(60px);
+  background: #131a26;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+  color: #34d399;
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal */
+.qr-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 7, 12, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: none;
+  place-items: center;
+  z-index: 200;
+  padding: 20px;
+}
+
+.qr-modal-backdrop.active {
+  display: grid;
+}
+
+.qr-card {
+  background: #111622;
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 26px 22px;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.85);
+}
+
+.qr-code-box {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 16px;
+  margin: 16px auto;
+  display: inline-block;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.qr-code-box img {
+  display: block;
+  width: 175px;
+  height: 175px;
+}
+
+.qr-close-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border);
+  color: #ffffff;
+  padding: 8px 24px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+.qr-close-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+
+<main class="card-container">
+  <!-- Executive Card Container -->
+  <div class="executive-card">
+    
+    <!-- Top Utility Bar -->
+    <header class="card-topbar">
+      <div class="nfc-pill">
+        <span class="live-beacon"></span>
+        <span>NFC Smart Card</span>
+      </div>
+      <div class="utility-buttons">
+        <button aria-label="QR Code" class="util-btn" id="shareQrBtn" title="Share via QR Code">
+          <i class="fa-solid fa-qrcode"></i>
+        </button>
+        <button aria-label="Copy Link" class="util-btn" id="copyLinkBtn" title="Copy Card Link">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Profile Hero Presentation -->
+    <section class="profile-hero">
+      <div class="avatar-frame">
+        <div class="avatar-glow"></div>
+        <div class="avatar-border-ring">
+          <img alt="Kavya Shree GN" class="avatar-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcAtH1dU3JbSxqBrj0I2lJhFw8n5siiQsmLM3XN-pna_dAik1BMq68tSnxe5Nm-v6hq2r4yrDG1ySgpvuuuzbCmVgAePro73Zzh_eAxzt3lhczLE_7aI556LJNSgPxRM8iwKYtIV-OxBXdGMHsze2oxzWxPE7aicvlJb_NSoZwmpicUUoxC7i3uVjCnPIuGaE7QolvoBV4B0YDGBjB2OkNY4-DZOWR7Awd-cUpK69MOpLqwiC0FX5LDQtoiOjewKLTsvc">
+        </div>
+        <div class="verified-badge" title="Verified Professional">
+          <i class="fa-solid fa-check"></i>
+        </div>
+      </div>
+
+      <div class="status-badge">
+        <i class="fa-solid fa-circle-dot"></i> Open to opportunities
+      </div>
+
+      <h1 class="person-name">Kavya Shree GN</h1>
+      <p class="person-role">Full-Stack Developer &amp; Data Analyst</p>
+      
+      <div class="location-tag">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>India</span>
+      </div>
+
+      <p class="bio-paragraph">
+        Building high-performance web applications and extracting intuitive insights from data. Let's create impactful digital experiences together.
+      </p>
+    </section>
+
+    <!-- Prominent Save Contact CTA -->
+    <div class="cta-container">
+      <button class="btn-save-contact" id="saveContact" type="button">
+        <span>Save to Contacts</span>
+        <div class="btn-action-circle">
+          <i class="fa-solid fa-user-plus"></i>
+        </div>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Direct Communication & Social Channels -->
+  <div class="actions-grid">
+    <a class="action-card" href="mailto:kavyamurthy2004@gmail.com">
+      <div class="action-icon-box">
+        <i class="fa-regular fa-envelope"></i>
+      </div>
+      <span class="action-label">Email</span>
+    </a>
+    
+    <a class="action-card" href="https://kavyashetty164.github.io/Kavya_portfolio/" rel="noopener noreferrer" target="_blank">
+      <div class="action-icon-box">
+        <i class="fa-solid fa-globe"></i>
+      </div>
+      <span class="action-label">Portfolio</span>
+    </a>
+    
+    <a class="action-card" href="https://www.linkedin.com/in/kavya-gn-1a6a30322" rel="noopener noreferrer" target="_blank">
+      <div class="action-icon-box">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </div>
+      <span class="action-label">LinkedIn</span>
+    </a>
+  </div>
+
+  <!-- Footer Branding -->
+  <footer class="card-footer">
+    <i class="fa-solid fa-bolt"></i>
+    <span>Instant NFC Tap • Kavya Shree GN</span>
+  </footer>
+</main>
+
+<!-- Dynamic Toast -->
+<div class="toast" id="toast">
+  <i class="fa-solid fa-circle-check"></i>
+  <span id="toastMsg">Contact card downloaded!</span>
+</div>
+
+<!-- QR Share Modal -->
+<div class="qr-modal-backdrop" id="qrModal">
+  <div class="qr-card">
+    <h3 style="font-size: 18px; font-weight: 700; color: white;">Scan to Open Card</h3>
+    <p style="font-size: 12.5px; color: var(--text-secondary); margin-top: 4px;">Point camera to view this digital business card</p>
+    <div class="qr-code-box">
+      <img alt="Card QR Code" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChxJawXTMpujy0YEjNAPa2jfe2L7Ol2H4zVAFcoTKgA7KBons9Wecf6dF1u8wIV32b15CeA8opfVmHB64BNk1C6Kp8prrIR8py_3p2KhNidjJuU-rztsN84MjfE4ciuKAHYm7tGrSK-Wl-o40K1_Y5HERV3TgejOk-pWya25-mSVn8MIna0gUVq5ptVRFBJVpJMX_SJ3jCiEdiPD0NK8i8JF0rqffKjGHMAjiUxYlL4m5pGkRp6MYpKw">
+    </div>
+    <button class="qr-close-btn" id="qrCloseBtn">Close</button>
+  </div>
+</div>
+
+<script>
+// Toast utility
+function showToast(text) {
+  const toast = document.getElementById("toast");
+  const msg = document.getElementById("toastMsg");
+  msg.innerText = text;
+  toast.classList.add("show");
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2600);
+}
+
+// vCard Generator with full rich details
+document.getElementById("saveContact").addEventListener("click", function () {
+  const vcard = [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    "FN;CHARSET=UTF-8:Kavya Shree GN",
+    "N;CHARSET=UTF-8:GN;Kavya Shree;;;",
+    "TITLE:Full-Stack Developer & Data Analyst",
+    "EMAIL;TYPE=INTERNET,WORK:kavyamurthy2004@gmail.com",
+    "URL;TYPE=Portfolio:https://kavyashetty164.github.io/Kavya_portfolio/",
+    "URL;TYPE=GitHub:https://github.com/Kavyashetty164",
+    "URL;TYPE=LinkedIn:https://www.linkedin.com/in/kavya-gn-1a6a30322",
+    "NOTE:Connected via NFC Smart Business Card",
+    "END:VCARD"
+  ].join("\r\n");
+
+  const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "Kavya-Shree-GN.vcf";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+  showToast("Contact card saved to device!");
+});
+
+// Copy link handler
+document.getElementById("copyLinkBtn").addEventListener("click", async function() {
+  const url = window.location.href || "https://kavyashetty164.github.io/Kavya_portfolio/";
+  if (navigator.clipboard) {
+    try {
+      await navigator.clipboard.writeText(url);
+      showToast("Link copied to clipboard!");
+      return;
+    } catch(e) {}
+  }
+  showToast("Card URL ready to share!");
+});
+
+// QR modal handlers
+const qrModal = document.getElementById("qrModal");
+document.getElementById("shareQrBtn").addEventListener("click", () => {
+  qrModal.classList.add("active");
+});
+document.getElementById("qrCloseBtn").addEventListener("click", () => {
+  qrModal.classList.remove("active");
+});
+qrModal.addEventListener("click", (e) => {
+  if (e.target === qrModal) qrModal.classList.remove("active");
+});
+</script>
+
+</body>
+</html>
